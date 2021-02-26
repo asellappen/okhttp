@@ -1,0 +1,26 @@
+# ----------------------------------------------------------------------------
+#
+# Package             : okhttp
+# Source Repo         : https://github.com/square/okhttp
+# Travis Job Link     : https://travis-ci.com/github/asellappen/okhttp/
+# Created travis.yml  : Yes
+# Maintainer          : Arumugam N S <asellappen@yahoo.com> / Priya Seth<sethp@us.ibm.com>
+#
+# Script License      : Apache License, Version 2 or later
+#
+# ----------------------------------------------------------------------------
+dist: focal
+
+language: java
+
+jdk:
+   - openjdk11
+os:
+  - linux
+arch:
+  - amd64
+  - ppc64le
+script :
+    - travis_wait 15 ./gradlew build
+    - travis_wait 15 ./gradlew clean test
+    - ./gradlew intTest
