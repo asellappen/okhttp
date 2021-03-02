@@ -25,5 +25,5 @@ before_install:
    - npx jetify
 script :
     - ./gradlew build
-    - ./gradlew clean test
+    - ./gradlew clean test  --rerun-tasks
 
