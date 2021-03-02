@@ -20,6 +20,9 @@ os:
 arch:
   - amd64
   - ppc64le
+before_install:
+   - npm install --save-dev jetifier
+   - npx jetify
 script :
     - travis_wait 15 ./gradlew build
     - travis_wait 15 ./gradlew clean test
