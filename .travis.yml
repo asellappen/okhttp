@@ -24,7 +24,6 @@ before_install:
    - npm install --save-dev jetifier
    - npx jetify
 script :
-    - ./gradlew -v
-    - travis_wait 15 ./gradlew build
-    - travis_wait 15 ./gradlew clean test
-    - ./gradlew intTest
+    - ./gradlew build
+    - ./gradlew clean test
+
