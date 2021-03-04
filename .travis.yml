@@ -13,19 +13,17 @@ dist: xenial
 
 language: java
 
+jdk: openjdk11
+
 matrix:
   include:
    - arch: amd64 
      os: linux
      dist: xenial
-     jdk: openjdk11
+
    - arch: ppc64le 
      os: linux
      dist: bionic
-     jdk: openjdk10
-     
-os:
-  - linux
 
 before_install:
    - npm install --save-dev jetifier
@@ -34,8 +32,8 @@ before_install:
 script :
 #samples:guide:compileJava not supported for ppc64le
    - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
-      ./gradlew build  -x samples:guide:compileJava;
-      ./gradlew clean test  -x samples:guide:compileJava --rerun-tasks;
+      ./gradlew build  -x  compileJava;
+      ./gradlew clean test  -x  compileJava --rerun-tasks;
      else
       ./gradlew build  ;
       ./gradlew clean test  --rerun-tasks ;
