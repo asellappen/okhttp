@@ -32,8 +32,8 @@ before_install:
 script :
 #samples:guide:compileJava not supported for ppc64le
    - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
-      ./gradlew build   -Dskip.tests=true ;
-      ./gradlew clean test  -x  :samples:guide:compileJava  --rerun-tasks;
+      ./gradlew build  --debug   -Dskip.tests=true ;
+      ./gradlew clean test  --debug  -x  compileJava   --rerun-tasks;
      else
       ./gradlew build  ;
       ./gradlew clean test  --rerun-tasks ;
