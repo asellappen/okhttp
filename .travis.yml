@@ -17,9 +17,9 @@ jdk: openjdk11
 
 matrix:
   include:
-   - arch: amd64 
-     os: linux
-     dist: xenial
+  # - arch: amd64 
+  #   os: linux
+  #   dist: xenial
 
    - arch: ppc64le 
      os: linux
@@ -32,8 +32,8 @@ before_install:
 script :
 #samples:guide:compileJava not supported for ppc64le
    - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
-      ./gradlew build  -x  compileJava;
-      ./gradlew clean test  -x  compileJava --rerun-tasks;
+      ./gradlew build  -x  "samples:guide:compileJava" ;
+      ./gradlew clean test  -x  "samples:guide:compileJava"  --rerun-tasks;
      else
       ./gradlew build  ;
       ./gradlew clean test  --rerun-tasks ;
