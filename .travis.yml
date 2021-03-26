@@ -13,7 +13,7 @@ dist: xenial
 
 language: java
 
-jdk: openjdk11
+jdk: openjdk8
 
 matrix:
   include:
