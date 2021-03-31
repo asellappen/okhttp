@@ -13,7 +13,7 @@ dist: xenial
 
 language: java
 
-jdk: openjdk8
+jdk: openjdk11
 
 matrix:
   include:
@@ -25,14 +25,17 @@ matrix:
      os: linux
      dist: xenial
 
-
+before_install:
+   - if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
+       sudo wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add - ;
+       sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ ;
+       sudo rm -rf /var/lib/apt/lists/* ;
+       sudo apt-get update -y ;
+       sudo apt install adoptopenjdk-8-hotspot -y ;
+       sudo apt remove adoptopenjdk-11-hotspot -y ;
+       java -version ;
+     fi
 
 script :
-#samples:guide:compileJava not supported for ppc64le
-   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
-      ./gradlew build  --debug   -x  ':samples:guide:compileJava' -Dskip.tests=true ;
-      ./gradlew clean test  --debug  -x  ':samples:guide:compileJava'  ;
-     else
-      ./gradlew build  ;
-      ./gradlew clean test  --rerun-tasks ;
-     fi
+    -  ./gradlew build 
+    -  ./gradlew clean test  --rerun-tasks 
