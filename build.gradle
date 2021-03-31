@@ -127,7 +127,7 @@ subprojects { project ->
   test {
     useJUnitPlatform()
     jvmArgs += "-Dokhttp.platform=$platform"
-
+    exclude '**compileKotlin*'
     javaLauncher = javaToolchains.launcherFor {
       languageVersion = JavaLanguageVersion.of(testJavaVersion)
       vendor = JvmVendorSpec.ADOPTOPENJDK
