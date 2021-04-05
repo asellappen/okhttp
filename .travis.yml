@@ -9,6 +9,8 @@
 # Script License      : Apache License, Version 2 or later
 #
 # ----------------------------------------------------------------------------
+sudo: required
+
 dist: xenial
 
 language: java
