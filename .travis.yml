@@ -15,7 +15,7 @@ dist: xenial
 
 language: java
 
-jdk: openjdk11
+jdk: openjdk8
 
 matrix:
   include:
@@ -28,6 +28,5 @@ matrix:
      dist: xenial
 
 script :
-   -  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-ppc64el/
    -  ./gradlew build 
    -  ./gradlew clean test  --rerun-tasks 
