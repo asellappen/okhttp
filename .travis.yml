@@ -11,23 +11,21 @@
 # ----------------------------------------------------------------------------
 sudo: required
 
-dist: xenial
-
 language: java
 
 jdk: 
   - openjdk8
   - openjdk11
   - openjdk15
+  
 matrix:
   include:
-   - arch: amd64 
-     os: linux
-     dist: xenial
-
    - arch: ppc64le 
-     os: linux
      dist: xenial
+   - arch: ppc64le 
+     dist: bionic
+   - arch: ppc64le 
+     dist: focal
 
 script :
    -  ./gradlew build 
