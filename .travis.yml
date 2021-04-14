@@ -15,8 +15,10 @@ dist: xenial
 
 language: java
 
-jdk: openjdk11
-
+jdk: 
+  - openjdk8
+  - openjdk11
+  - openjdk15
 matrix:
   include:
    - arch: amd64 
