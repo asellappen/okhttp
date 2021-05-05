@@ -13,20 +13,16 @@ sudo: required
 
 language: java
 
+arch: 
+   - amd64
+   - ppc64le 
+
+
 jdk: 
   - openjdk8
   - openjdk11
   - openjdk16
   
-matrix:
-  include:
-   - arch: ppc64le 
-     dist: xenial
-   - arch: ppc64le 
-     dist: bionic
-   - arch: ppc64le 
-     dist: focal
-
 script :
    -  ./gradlew build 
    -  ./gradlew clean test  --rerun-tasks 
