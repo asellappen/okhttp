@@ -166,6 +166,7 @@ subprojects { project ->
   tasks.withType(JavaCompile).configureEach {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+    options.failOnError(false)
   }
 
   dokka {
