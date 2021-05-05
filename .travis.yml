@@ -14,7 +14,7 @@ sudo: required
 language: java
 
 arch: 
-   - amd64
+ #  - amd64
    - ppc64le 
 
 
