@@ -72,7 +72,10 @@ subprojects { project ->
   apply plugin: 'org.jetbrains.dokka'
   apply plugin: 'biz.aQute.bnd.builder'
 
-
+  tasks.withType(JavaCompile) {
+    options.failOnError(false)
+    options.encoding = 'UTF-8'
+  }
 
   java {
     toolchain {
@@ -111,6 +114,7 @@ subprojects { project ->
   tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
     kotlinOptions {
       jvmTarget = "1.8"
+      options.failOnError(false)
     }
   }
 
