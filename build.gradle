@@ -72,9 +72,7 @@ subprojects { project ->
   apply plugin: 'org.jetbrains.dokka'
   apply plugin: 'biz.aQute.bnd.builder'
 
-  tasks.withType(JavaCompile) {
-     options.release = 7
-  }
+
 
   java {
     toolchain {
